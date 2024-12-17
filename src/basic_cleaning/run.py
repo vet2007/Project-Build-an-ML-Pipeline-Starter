@@ -49,50 +49,48 @@ def go(args):
 # TODO: In the code below, fill in a description for each argument. The description should be a string.
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(description="A very basic data cleaning")
-  
+    parser = argparse.ArgumentParser(description="A very basic data cleaning")  
     parser.add_argument(
         "--input_artifact", 
-        type = str,
-        help = "Name of the input artifact to clean",
-        required = True
+        type=str,
+        help="Name of the input artifact to clean",
+        required=True
     )
 
     parser.add_argument(
         "--output_artifact",
-        type=str,  # INSERT TYPE HERE
-        help="Name of the output artifact for cleaned data",  # INSERT DESCRIPTION HERE
-        required = True
+        type=str,
+        help="Name of the output artifact for cleaned data",
+        required=True
     )
 
     parser.add_argument(
         "--output_type",
-        type=str,  # INSERT TYPE HERE
-        help="Type of the output artifact",
-        required = True
+        type=str,
+        help="Type of the output artifact (e.g., cleaned dataset)",
+        required=True
     )
 
     parser.add_argument(
         "--output_description",
-        type=str,  # INSERT TYPE HERE
+        type=str,
         help="Description for the output artifact",
-        required = True
+        required=True
     )
 
     parser.add_argument(
         "--min_price",
-        type=float,  # INSERT TYPE HERE
+        type=float,
         help="Minimum price value for filtering rows",
-        required = True
+        required=True
     )
 
     parser.add_argument(
         "--max_price",
-        type=float,  # INSERT TYPE HERE
+        type=float,
         help="Maximum price value for filtering rows",
-        required = True
+        required=True
     )
-
 
     args = parser.parse_args()
 
