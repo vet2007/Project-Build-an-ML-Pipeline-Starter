@@ -89,24 +89,21 @@ def go(config: DictConfig):
                     "max_price": config['etl']['max_price']
                 },
             )    
-            
+            pass
 
         if "data_split" in active_steps:
-            ##################
-            # Implement here #
-            ##################
             _ = mlflow.run(
-                os.path.join(root_path, "components", "train_val_test_split"),
+                os.path.join(config["main"]["components_repository"], "train_val_test_split"),
                 "main",
                 parameters={
                     "input": "clean_sample.csv:latest",
-                    "test_size": config["modeling"]["test_size"],
-                    "random_seed": config["modeling"]["random_seed"],
-                    "stratify_by": config["modeling"]["stratify_by"]
-                },
+                    "test_size": str(config["modeling"]["test_size"]), 
+                    "random_seed": str(config["modeling"]["random_seed"]), 
+                    "stratify_by": config["modeling"]["stratify_by"] 
+                }
             )
-            
 
+        
         if "train_random_forest" in active_steps:
 
             # NOTE: we need to serialize the random forest configuration into JSON
